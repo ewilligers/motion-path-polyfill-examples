@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  body {
+    width: 323px;
+    height: 131px;
+    margin: 0px;
+    border: 2px solid black;
+    padding: 8px;
+    transform-style: preserve-3d;
+  }
+  #circle {
+    position: absolute;
+    left: calc(10px - 148px);
+    top: calc(10px + 40px - 148px);
+    width: calc(148px * 2);
+    height: calc(148px * 2);
+    border: 1px dotted;
+    border-radius: 50%;
+  }
+  .item {
+    width:  90px;
+    height: 40px;
+    background-color: violet;
+  }
+  #middle {
+    offset-position: auto;
+    offset-path: circle(148px) /* circle(60%) margin-box */; /* geometry-box not yet supported */
+    offset-distance: 25%;
+    offset-anchor: left top;
+  }
+  /* FIXME: Find out why the circle and middle item don't line up. */
+</style>
+<body>
+  <div id="circle"></div>
+  <div class="item"></div>
+  <div class="item" id="middle"></div>
+  <div class="item"></div>
+</body>

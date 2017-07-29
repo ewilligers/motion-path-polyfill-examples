@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  body {
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    border: 1px dotted;
+  }
+  #circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px dotted;
+    border-radius: 50%;
+  }
+  .box {
+    width: 50px;
+    height: 50px;
+    offset-position: 50% 50%;
+    offset-distance: 100%;
+    offset-rotate: 0deg;
+  }
+  #redBox {
+    background-color: red;
+    offset-path: ray(45deg closest-side contain);
+  }
+  #blueBox {
+    background-color: blue;
+    offset-path: ray(180deg closest-side contain);
+  }
+</style>
+<body>
+  <div id="circle"></div>
+  <div class="box" id="redBox"></div>
+  <div class="box" id="blueBox"></div>
+</body>

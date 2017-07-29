@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  body {
+    width: 500px;
+    height: 300px;
+    border-radius: 80px;
+    border: dashed aqua;
+    margin: 0;
+  }
+  #blueBox {
+    width: 40px;
+    height: 20px;
+    background-color: blue;
+    offset-path: margin-box;
+  }
+</style>
+<body>
+  <div id="blueBox"></div>
+  <h1>geometry-box is not yet implemented in polyfill</h1>
+</body>

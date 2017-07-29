@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  #wrap {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    transform-style: preserve-3d; /* FIXME: Add transform-style to spec example. */
+  }
+  #dot {
+    position: absolute;
+    left: calc(80px - 5px);
+    top: calc(100px - 5px);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+  }
+
+  #box {
+    width: 100px;
+    height: 100px;
+    background-color: green;
+    position: absolute;
+    top: 100px;
+    left: 80px;
+    offset-position: auto;
+    /* FIXME: Polyfill has the element's left/top at left/top,
+       The spec diagram has the element centered at left/top. */
+    offset-anchor: center;
+    offset-path: ray(45deg);
+  }
+</style>
+<body>
+  <div id="wrap">
+    <div id="box"></div>
+    <div id="dot"></div>
+  </div>
+</body>

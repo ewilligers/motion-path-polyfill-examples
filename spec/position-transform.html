@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  #wrap {
+    transform-style: preserve-3d;
+    width: 400px;
+    height: 350px;
+  }
+  .item {
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    offset-position: 200px 100px; /* translates by 0px,100px */
+    offset-anchor: left top;
+    transform-origin: left top;
+    width: 130px;
+    height: 80px;
+    border-top-right-radius: 23px;
+  }
+  #box1 {
+    background-color: tomato;
+    offset-position: auto;
+  }
+  #box2 {
+    background-color: green;
+  }
+  #box3 {
+    background-color: navy;
+    rotate: 90deg; /* applied before motion path transform */
+  }
+  #box4-workaround {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 23px;
+    background-color: gold;
+    transform-origin: left top;
+    transform: rotate(90deg); /* applied after motion path transform */
+  }
+  /* FIXME: The motion path polyfill should append any existing 'transform' value
+     to the transform obtained from the offset and individual transform properties.
+     Currently, when the polyfill generates a transform, any existing transform
+     is discarded. */
+</style>
+<body>
+  <div id="wrap">
+    <div class="item" id="box1"></div>
+    <div class="item" id="box2"></div>
+    <div class="item" id="box3"></div>
+    <div class="item">
+      <div id="box4-workaround"></div>
+    </div>
+  </div>
+</body>

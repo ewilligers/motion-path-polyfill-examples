@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  body {
+    transform-style: preserve-3d;
+    width: 250px;
+    height: 250px;
+    border: 1px dotted;
+    transform: translate(200px, 200px);
+  }
+  #circle {
+    position: absolute;
+    width: 40%;
+    height: 40%;
+    border: 1px dotted;
+    border-radius: 50%;
+  }
+  .box {
+    width: 60%;
+    height: 10%;
+
+    offset-position: 20% 20%;
+    offset-distance: 0%;
+    offset-anchor: 200% -300%;
+    offset-rotate: 0deg; /* FIXME: This line needs to be added in the spec. */
+  }
+  #blueBox {
+    background-color: blue;
+    offset-path: ray(-90deg closest-side contain);
+  }
+</style>
+<body>
+  <div id="circle"></div>
+  <div class="box" id="blueBox"></div>
+</body>

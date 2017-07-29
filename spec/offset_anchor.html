@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  body {
+    transform-style: preserve-3d;
+    width: 300px;
+    height: 300px;
+    border: 2px solid gray;
+    border-radius: 50%;
+  }
+  .box {
+    width: 50px;
+    height: 50px;
+    background-color: orange;
+    offset-position: 50% 50%;
+    offset-distance: 100%;
+    offset-rotate: 0deg;
+  }
+  #item1 {
+    offset-path: ray(45deg closest-side);
+    offset-anchor: right top;
+  }
+  #item2 {
+    offset-path: ray(135deg closest-side);
+    offset-anchor: right bottom;
+  }
+  #item3 {
+    offset-path: ray(225deg closest-side);
+    offset-anchor: left bottom;
+  }
+  #item4 {
+    offset-path: ray(315deg closest-side);
+    offset-anchor: left top;
+  }
+</style>
+<body>
+  <div class="box" id="item1"></div>
+  <div class="box" id="item2"></div>
+  <div class="box" id="item3"></div>
+  <div class="box" id="item4"></div>
+</body>

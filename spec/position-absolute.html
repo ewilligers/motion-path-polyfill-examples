@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  #wrap {
+    transform-style: preserve-3d;
+    width: 540px;
+    height: 420px;
+  }
+  .item {
+    position: absolute;
+    width: 90px;
+    height: 70px;
+    border-top-right-radius: 23px;
+    scale: 0.8 0.8; /* applied before motion path transform */
+    offset-path: padding-box; /* FIXME: geometry-box is not yet supported by polyfill. */
+    offset-distance: 50%;
+    offset-rotate: 0deg;
+    offset-anchor: right bottom;
+  }
+  #box1 {
+    position: static;
+    offset-position: auto; /* ignored */
+  }
+  #box2 {
+    right: 0px;
+    top: 0px;
+    offset-position: 23% 45%; /* ignored */
+  }
+  #box3 {
+    left: 0px;
+    bottom: 0px;
+    offset-position: 34% 56px; /* ignored */
+  }
+  #box4 {
+    right: 0px;
+    bottom: 0px;
+    offset-position: 45px 67px; /* ignored */
+  }
+  div > span {
+    position: static;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 23px;
+    transform: scale(1.25); /* applied after motion path transform */
+  }
+  #box1-workaround {
+    background-color: tomato;
+  }
+  #box2-workaround {
+    background-color: green;
+  }
+  #box3-workaround {
+    background-color: navy;
+  }
+  #box4-workaround {
+    background-color: gold;
+  }
+</style>
+<body>
+  <div id="wrap">
+    <div class="item" id="box1"><span id="box1-workaround"></span></div>
+    <div class="item" id="box2"><span id="box2-workaround"></span></div>
+    <div class="item" id="box3"><span id="box3-workaround"></span></div>
+    <div class="item" id="box4"><span id="box4-workaround"></span></div>
+  </div>
+</body>

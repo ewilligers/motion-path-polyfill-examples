@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  .item {
+    width: 100px;
+    height: 40px;
+    offset-position: 0% 0%;
+    offset-path: path('m 0 0 h 200 v 150 z');
+  }
+  #box1 {
+    background-color: red;
+    offset-distance: -280%;
+  }
+  #box2 {
+    background-color: green;
+    offset-distance: 190%;
+  }
+</style>
+<body>
+  <div class="item" id="box1"></div>
+  <div class="item" id="box2"></div>
+</body>

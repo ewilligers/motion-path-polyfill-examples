@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  body {
+    transform-style: preserve-3d;
+    width: 300px;
+    height: 300px;
+    border: dashed gray;
+    border-radius: 50%;
+  }
+  .circleBox {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    offset-position: 50% 50%;
+    /* FIXME: offset-position should not be needed to get circle3 on the path. */
+    /* FIXME: offset-position should be sufficient if left/top are omitted.*/
+    width: 40px;
+    height: 40px;
+    background-color: red;
+    border-radius: 50%;
+  }
+  #circle1 {
+    offset-path: ray(0deg farthest-side);
+    offset-distance: 50%;
+  }
+  #circle2 {
+    offset-path: ray(90deg farthest-side);
+    offset-distance: 20%;
+  }
+  #circle3 {
+    offset-path: ray(225deg farthest-side);
+    offset-distance: 100%;
+  }
+</style>
+<body>
+  <div class="circleBox" id="circle1"></div>
+  <div class="circleBox" id="circle2"></div>
+  <div class="circleBox" id="circle3"></div>
+</body>
