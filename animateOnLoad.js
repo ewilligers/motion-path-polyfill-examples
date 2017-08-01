@@ -91,7 +91,9 @@ window.onload = function() {
     }
   }
 
-  function applyInlineStyles() {
+  var pending = [];
+
+  function readInlineStyles() {
     var inlineStyledElements = document.querySelectorAll('[style]');
     for (var i = 0; i < inlineStyledElements.length; ++i) {
       var inlineStyledElement = inlineStyledElements[i];
@@ -101,12 +103,20 @@ window.onload = function() {
       if (Object.keys(keyframe).length === 0)
         continue;
 
+      pending.push([inlineStyledElement, keyframe]);
+    }
+  }
+
+  function applyInlineStyles() {
+    for (var i = 0; i < pending.length; ++i) {
+      var inlineStyledElement = pending[i][0];
+      var keyframe = pending[i][1];
       var keyframes = [keyframe, keyframe];
       inlineStyledElement.animate(keyframes, timing);
     }
   }
 
-  // FIXME: Inline styles should have priority over style sheets.
-  applyInlineStyles();
+  readInlineStyles();
   applyStyleSheets();
+  applyInlineStyles();
 };
