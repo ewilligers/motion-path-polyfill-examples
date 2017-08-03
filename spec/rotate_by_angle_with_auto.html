@@ -15,7 +15,8 @@
   }
   .circle {
     offset-position: 150px 150px;
-    width: 42px; /* FIXME: The spec has 50px but that is too large */
+    offset-distance: 86%;
+    width: 42px;
     height: 42px;
     background-color: mediumpurple;
     border-radius: 50%;
@@ -25,32 +26,26 @@
   }
   #item1 {
     offset-path: ray(0deg closest-side);
-    offset-distance: 86%; /* FIXME: The spec has 90% but that is too large */
     offset-rotate: auto 90deg;
   }
   #item2 {
     offset-path: ray(45deg closest-side);
-    offset-distance: 86%;
     offset-rotate: auto 90deg;
   }
   #item3 {
     offset-path: ray(135deg closest-side);
-    offset-distance: 86%;
     offset-rotate: auto -90deg;
   }
   #item4 {
     offset-path: ray(180deg closest-side);
-    offset-distance: 86%;
     offset-rotate: auto -90deg;
   }
   #item5 {
     offset-path: ray(225deg closest-side);
-    offset-distance: 86%;
     offset-rotate: reverse 90deg;
   }
   #item6 {
     offset-path: ray(-45deg closest-side);
-    offset-distance: 86%;
     offset-rotate: reverse -90deg;
   }
 </style>
