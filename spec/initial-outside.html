@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<script src="../third_party/web-animations-js/web-animations.dev.js"></script>
+<script src="../third_party/motion-path-polyfill.min.js"></script>
+<script src="../animateOnLoad.js"></script>
+
+<style>
+  #container {
+    transform-style: preserve-3d;
+    width: 200px;
+    height: 200px;
+    border: dashed;
+  }
+  .box {
+    width: 20%;
+    height: 20%;
+    offset-position: 140% 70%;
+    offset-distance: 100%;
+  }
+  #redBox {
+    background-color: red;
+    offset-path: ray(-90deg sides);
+  }
+  #blueBox {
+    background-color: blue;
+    offset-path: ray(180deg closest-side);
+  }
+</style>
+<body>
+  <div id="container">
+    <div class="box" id="redBox"></div>
+    <div class="box" id="blueBox"></div>
+  </div>
+</body>
